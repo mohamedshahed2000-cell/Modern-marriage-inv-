@@ -252,17 +252,69 @@ body{background:var(--e1);color:var(--gl);font-family:'Cormorant Garamond',serif
 ═══════════════════════════════ */
 #gallery{background:var(--e1);padding:0}
 .gal-head{text-align:center;padding:clamp(5rem,10vw,7rem) clamp(1.5rem,5vw,4rem) 2.5rem;background:linear-gradient(180deg,#020A05,#071810)}
-.gg{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:var(--e1)}
-@media(max-width:680px){.gg{grid-template-columns:repeat(2,1fr)}}
-.gi{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:pointer}
-.gi:nth-child(1){grid-row:span 2;aspect-ratio:auto}
-.gi:nth-child(5){grid-column:span 2;aspect-ratio:16/7}
-.gi:nth-child(8){grid-row:span 2;aspect-ratio:auto}
-.gi img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.16,1,.3,1),filter .5s;filter:brightness(.85) saturate(.85)}
-.gi:hover img{transform:scale(1.1);filter:brightness(1.05) saturate(1.15)}
-.gov{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,10,5,.8),transparent 55%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.2rem;opacity:0;transition:opacity .4s}
-.gi:hover .gov{opacity:1}
-.gov span{font-family:'Cinzel',serif;font-weight:700;font-size:.6rem;letter-spacing:.3em;color:var(--gl);border:1px solid rgba(245,218,142,.4);padding:.4rem 1rem}
+.gg{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  padding:0 20px 40px;
+}
+
+@media(max-width:768px){
+  .gg{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+.gi{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  aspect-ratio:4/5;
+  cursor:pointer;
+}
+
+.gi:first-child{
+  grid-column:span 2;
+  aspect-ratio:16/9;
+}
+
+.gi img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s ease;
+  filter:brightness(.95);
+}
+
+.gi:hover img{
+  transform:scale(1.05);
+}
+
+.gov{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:.3s;
+}
+
+.gi:hover .gov{
+  opacity:1;
+}
+
+.gov span{
+  font-family:'Cinzel',serif;
+  font-size:.7rem;
+  letter-spacing:.25em;
+  color:var(--gl);
+  border:1px solid rgba(245,218,142,.4);
+  padding:.4rem 1rem;
+}
 
 /* ═══════════════════════════════
    RSVP + FOOTER
